@@ -1,0 +1,10 @@
+# Ignore hidden environment files containing secret keys
+.env
+
+# Ignore virtual environments
+venv/
+__pycache__/
+
+# Ignore local database files containing private messages
+*.db
+instance/

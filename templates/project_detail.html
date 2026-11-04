@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.title }} - Ntsako McGiven Tech Suite</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --accent-color: #0284c7;
+            --accent-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            --text-main: #0f172a;
+            --text-muted: #475569;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .header-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #f0f9ff;
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            margin-bottom: 0.8rem;
+            border: 1px solid #bae6fd;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            color: var(--text-main);
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background-color: #f1f5f9;
+            color: #334155;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            margin-right: 0.4rem;
+            margin-top: 0.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-box h2 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .btn-launch {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-gradient);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        .btn-launch:hover {
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="{{ url_for('home') }}" class="back-link">&larr; Back to Tech Suite Portfolio</a>
+
+        <div class="header-box">
+            <span class="badge">{{ project.category }}</span>
+            <h1>{{ project.title }}</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">{{ project.description }}</p>
+            <div>
+                {% for tag in project.tech_stack %}
+                    <span class="tech-tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            
+            {% if project.live_url != '#' %}
+                <a href="{{ project.live_url }}" target="_blank" class="btn-launch">Launch Local Application</a>
+            {% endif %}
+        </div>
+
+        <div class="section-box">
+            <h2>System Overview</h2>
+            <p>{{ project.overview }}</p>
+        </div>
+
+        <div class="section-box">
+            <h2>Key Capabilities & Features</h2>
+            <ul>
+                {% for feature in project.features %}
+                    <li>{{ feature }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h2>Security Controls & Protection</h2>
+            <ul>
+                {% for sec in project.security %}
+                    <li>{{ sec }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h2>How to Use / Operational Workflow</h2>
+            <p>{{ project.user_guide }}</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
