@@ -96,6 +96,7 @@ PROJECTS = [
         "tech_stack": ["Python", "Flask", "ReportLab", "SQLite"],
         "description": "Digital clipboard entry and PDF generation system built for export packhouse routing, food safety, and cold chain enforcement.",
         "live_url": "/packhouse-portal",
+        "url": "packhouse_portal",
         "status": "Active / Local",
         "overview": "The Packhouse Electronic Route File Portal digitizes paper-based routing and quality control forms across citrus and fresh produce export facilities in regional operational blocks (Tzaneen, Musina, Makhado).",
         "features": [
@@ -118,6 +119,7 @@ PROJECTS = [
         "tech_stack": ["PHP", "PDO", "MySQL", "phpMyAdmin"],
         "description": "Online event management and reservation system constructed with a localized database architecture.",
         "live_url": "#",
+        "url": "eventpro",
         "status": "Prototype",
         "overview": "EventPro is a robust web application designed for booking, managing, and tracking events through an interactive localized web interface.",
         "features": [
@@ -140,6 +142,7 @@ PROJECTS = [
         "tech_stack": ["Python", "Streamlit", "SQLite"],
         "description": "Multi-view analytics web interface automating daily regional operations and weekly export inspection reporting metrics.",
         "live_url": "#",
+        "url": "riros",
         "status": "Active",
         "overview": "RIROS (Daily Inspection Clipboard Entry Portal) turns daily manual inspection data into interactive visual analytics, simplifying weekly reporting across regional hubs.",
         "features": [
@@ -161,6 +164,7 @@ PROJECTS = [
         "tech_stack": ["Python", "Network Security", "Flask"],
         "description": "Upcoming security monitoring framework focused on vulnerability tracking, secure log parsing, and defensive network posture analysis.",
         "live_url": "#",
+        "url": "cyber_sec",
         "status": "Future Project",
         "overview": "A planned defensive security tool designed to ingest application logs, detect anomalous request patterns, and monitor web server vulnerability metrics.",
         "features": [
@@ -181,6 +185,7 @@ PROJECTS = [
         "tech_stack": ["Python", "File System Analysis", "Hashing"],
         "description": "Planned analytical tool designed for safe file integrity verification, metadata extraction, and secure audit trail preservation.",
         "live_url": "#",
+        "url": "digi_forensics",
         "status": "Future Project",
         "overview": "An upcoming digital forensics software utility engineered to calculate cryptographic hashes and extract file metadata for legal compliance and chain of custody tracking.",
         "features": [
@@ -193,14 +198,28 @@ PROJECTS = [
             "Cryptographic hashing to detect unauthorized file tampering"
         ],
         "user_guide": "Currently in design phase. Future release will accept target file paths for automated digital forensic auditing."
-    }
+    },
     {
+        "id": "forensiai",
         "title": "ForensiAI Digital Forensics Engine",
         "category": "Cybersecurity & Forensic Analytics",
-        "description": "Enterprise evidence inspection platform with binary magic-byte header analysis and SHA-256 verification.",
-        "tags": ["FastAPI", "React", "SHA-256", "EXIF Parsing"],
-        "url": "forensiai"
-    },
+        "tech_stack": ["FastAPI", "React", "SHA-256", "EXIF Parsing"],
+        "description": "Enterprise evidence inspection platform featuring binary magic-byte header analysis, multi-algorithmic hash integrity validation, and an immutable Chain of Custody audit vault.",
+        "live_url": "/forensiai",
+        "url": "forensiai",
+        "status": "Active Engine",
+        "overview": "ForensiAI is a real-time digital forensics suite built to detect file spoofing via binary header signatures, verify multi-hash integrity, and audit digital evidence.",
+        "features": [
+            "Binary magic-byte header identification to prevent file spoofing",
+            "SHA-256, SHA-1, and MD5 multi-hash verification",
+            "Chain of Custody audit vault with timestamped ledger entries"
+        ],
+        "security": [
+            "Read-only stream parsing for uploaded evidence",
+            "Header validation checks to mitigate file upload exploits"
+        ],
+        "user_guide": "Access the ForensiAI suite, ingest your evidence file, and review threat scoring alongside the audit ledger."
+    }
 ]
 
 with app.app_context():
